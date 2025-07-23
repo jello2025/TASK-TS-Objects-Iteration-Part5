@@ -51,9 +51,7 @@ const fruits: Fruit[] = [
  *  getFruitColor(fruits[0]); // => "Red"
  */
 function getFruitColor(fruit: Fruit): string {
-  // write your code here...
-
-  return ""; // replace empty string with what you see is fit
+  return fruit.color;
 }
 
 /**
@@ -66,9 +64,11 @@ function getFruitColor(fruit: Fruit): string {
  *  isFruitTasteMatching(fruits[2], "Citrusy"); // => true
  */
 function isFruitTasteMatching(fruit: Fruit, taste: string): boolean {
-  // write your code here...
-
-  return false; // replace false with what you see is fit
+  if (fruit.taste == taste) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -96,9 +96,14 @@ function addFruit(
   color: string,
   taste: string
 ): Fruit[] {
-  // write your code here...
-
-  return []; // replace empty array with what you see is fit
+  let newFruit = {
+    id: id,
+    name: name,
+    color: color,
+    taste: taste,
+  };
+  fruits.push(newFruit);
+  return fruits;
 }
 
 /**
@@ -110,9 +115,9 @@ function addFruit(
  *  countSweetFruits(fruits); // => 3
  */
 function countSweetFruits(fruits: Fruit[]): number {
-  // write your code here...
-
-  return -1; // replace -1 with what you see is fit
+  return fruits.filter((fruit) => {
+    return fruit.taste == "Sweet";
+  }).length;
 }
 
 export {
